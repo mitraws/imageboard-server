@@ -18,7 +18,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-      fullname: {
+      fullName: {
         allowNull: false,
         type: Sequelize.STRING
       },
