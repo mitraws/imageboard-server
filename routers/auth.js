@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const bcrypt = require("bcrypt");
 const User = require("../models").user;
+const authMiddleware = require("../auth/middleware")
 
 const { toJWT, toData } = require("../auth/jwt");
 
@@ -40,6 +41,12 @@ router.post("/login", async (req, res) => {
         } 
 }})
 
+
+router.get("/test-auth", authMiddleware, (req, res) => {
+  res.send({
+    message: `Thanks for visiting the secret endpoint ${req.user.email}.`,
+  });
+});
 
 
 module.exports = router;
